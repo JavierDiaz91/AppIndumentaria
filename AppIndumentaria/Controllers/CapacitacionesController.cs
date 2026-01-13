@@ -48,7 +48,7 @@ namespace AppIndumentaria.Controllers
         // GET: Capacitaciones/Create
         public IActionResult Create()
         {
-            // Puedes inicializar un modelo vacío si es necesario
+            
             var model = new Capacitacion();
 
             return View(model);
@@ -78,7 +78,7 @@ namespace AppIndumentaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CapacitacionID,Titulo,Descripcion,Fecha")] Capacitacion capacitacion)
         {
-            // Eliminar la validación para la propiedad Participaciones
+            
             ModelState.Remove("Participaciones");
 
             if (ModelState.IsValid)
@@ -125,7 +125,7 @@ namespace AppIndumentaria.Controllers
                 return NotFound();
             }
 
-            ModelState.Remove("Participaciones"); // Ignora la propiedad de navegación
+            ModelState.Remove("Participaciones"); 
 
             if (ModelState.IsValid)
             {

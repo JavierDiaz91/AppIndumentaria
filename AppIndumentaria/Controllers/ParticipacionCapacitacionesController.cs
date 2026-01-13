@@ -125,7 +125,7 @@ namespace AppIndumentaria.Controllers
                 return NotFound();
             }
 
-            // Asegúrate de que los ViewBag se llenan con los valores correctos para las listas desplegables
+            
             ViewData["EmpleadoID"] = new SelectList(_context.Empleados.ToList(), "EmpleadoID", "Nombre", participacionCapacitacion.EmpleadoID);
             ViewData["CapacitacionID"] = new SelectList(_context.Capacitaciones.ToList(), "CapacitacionID", "Titulo", participacionCapacitacion.CapacitacionID);
 

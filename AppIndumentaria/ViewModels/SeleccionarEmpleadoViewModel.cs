@@ -8,7 +8,7 @@ namespace AppIndumentaria.ViewModels
         public int EmpleadoId { get; set; }
         public IEnumerable<EmpleadoSimpleViewModel> Empleados { get; set; }
 
-        // Nueva propiedad para seleccionar la opción de impresión
+        
         public string OpcionSeleccionada { get; set; }
         public IEnumerable<string> Opciones { get; set; } = new List<string> { "Indumentaria", "Cursos Tomados" };
 

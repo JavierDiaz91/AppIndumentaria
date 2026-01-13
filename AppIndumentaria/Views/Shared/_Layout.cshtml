@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </head>
 @{
-        // Declaración y valor por defecto (true)
+        
         bool mostrarSidebar = true;
 
-        // Verificamos si Identity (a través de _LayoutSinBarra.cshtml) pidió ocultarla
+        
         if (Context.Items.ContainsKey("MostrarSidebar"))
         {
                 mostrarSidebar = (bool)Context.Items["MostrarSidebar"];
@@ -113,7 +113,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container text-center">
-            &copy; 2024 - Control de Indumentarias
+            &copy; 2026 - Control de Indumentarias
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

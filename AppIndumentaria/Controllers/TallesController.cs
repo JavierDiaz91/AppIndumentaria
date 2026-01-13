@@ -48,7 +48,7 @@ public class TallesController : Controller
         // Genera un ID único si no se ha proporcionado uno
         if (string.IsNullOrEmpty(talle.TalleID))
         {
-            // Puedes personalizar este patrón para generar el ID, por ejemplo usando un GUID
+           
             talle.TalleID = Guid.NewGuid().ToString("N"); // Genera un identificador único sin guiones
         }
         ModelState.Remove("TalleID");
@@ -91,7 +91,7 @@ public class TallesController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(string id, [Bind("TalleID,Nombre,Descripcion")] Talle talle) // Incluido 'Descripcion' si existe en el modelo.
+    public async Task<IActionResult> Edit(string id, [Bind("TalleID,Nombre,Descripcion")] Talle talle) 
     {
         if (id != talle.TalleID)
         {
@@ -113,7 +113,7 @@ public class TallesController : Controller
                 }
                 else
                 {
-                    // Añadir manejo de error de concurrencia si es necesario.
+                    
                     throw;
                 }
             }
@@ -138,7 +138,7 @@ public class TallesController : Controller
         }
 
         var talle = await _context.Talles
-            .FirstOrDefaultAsync(m => m.TalleID == id); // Cambié `talleId` a `id`, ya que ambos deben ser `string`.
+            .FirstOrDefaultAsync(m => m.TalleID == id); 
 
         if (talle == null)
         {
@@ -170,7 +170,7 @@ public class TallesController : Controller
         }
         catch (Exception ex)
         {
-            // Añadir manejo de error para identificar problemas al eliminar.
+            
             ModelState.AddModelError("", $"Ocurrió un error inesperado al eliminar el talle: {ex.Message}");
             return View(talle); // Retornar la vista si hubo un error.
         }

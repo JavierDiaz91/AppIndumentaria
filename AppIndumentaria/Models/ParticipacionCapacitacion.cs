@@ -6,7 +6,7 @@
         public int EmpleadoID { get; set; }
         public int CapacitacionID { get; set; }
         public DateTime FechaParticipacion { get; set; }
-        public string Estado { get; set; } // Ejemplo: "En Curso", "Completado"
+        public string Estado { get; set; } 
 
         // Relaciones
         public Empleado Empleado { get; set; }

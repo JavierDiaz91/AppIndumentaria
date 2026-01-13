@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace AppIndumentaria.Models
 {
-    // 2. Cambiar la clase base de DbContext a IdentityDbContext
+    
     public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
@@ -28,10 +28,10 @@ namespace AppIndumentaria.Models
                 .HasForeignKey(ti => ti.TalleID)  // TalleID como clave foránea.
                 .OnDelete(DeleteBehavior.Cascade);
 
-            // Configura la clave primaria si es necesario, por ejemplo:
+            
             modelBuilder.Entity<Talle>()
                 .Property(t => t.TalleID)
-                .ValueGeneratedNever(); // Si quieres usar valores específicos como "M", "G", etc., para TalleID.
+                .ValueGeneratedNever(); 
         }
 
     }
