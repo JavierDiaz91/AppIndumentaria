@@ -1,0 +1,48 @@
+﻿@model AppIndumentaria.ViewModels.SeleccionarEmpleadoViewModel
+
+@{
+    ViewData["Title"] = "Seleccionar Empleado para Imprimir PDF";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white; font-family: Fellix, serif; text-align: center;">
+                    <h3 class="mb-0">Seleccione el nombre del personal</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="GenerarEntregaIndumentariaPDF" method="get" id="formGenerarPDF">
+                        <div class="form-group">
+                            <label for="empleadoId">Elija un empleado</label>
+                            <select asp-for="EmpleadoId" asp-items="@(new SelectList(Model.Empleados, "EmpleadoID", "NombreCompleto"))" class="form-control" required>
+                                <option value="">Seleccione un nombre</option>
+                            </select>
+                        </div>                        
+                        <!-- Botón para enviar el formulario con confirmación -->
+                        <button type="button" class="btn shadow-sm mt-4" style="background-color: #1E3250; color: white;" onclick="confirmarImpresion()">
+                            <i class="fas fa-print"></i> Generar PDF
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmarImpresion() {
+        // Mostrar cuadro de confirmación al usuario
+        var confirmar = confirm("¿Desea descargar e imprimir el PDF?");
+        if (confirmar) {
+            // Si el usuario confirma, envía el formulario
+            document.getElementById("formGenerarPDF").submit();
+        }
+        // Si el usuario selecciona "Cancelar", no se hace nada
+    }
+</script>
+
+
+
+
+

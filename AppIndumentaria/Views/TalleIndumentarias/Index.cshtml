@@ -1,0 +1,75 @@
+﻿@model IPagedList<AppIndumentaria.Models.TalleIndumentaria>
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+
+@{
+    ViewData["Title"] = "Stock disponible";
+}
+
+<div class="container mt-5">
+    <h3 class="fw-bold text-secondary mb-4" style="font-family: Fellix, serif; text-align: center;">Stock Disponible de Indumentarias</h3>
+
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-action="Create" class="btn btn-success shadow-sm rounded-pill px-4">
+            <i class="fas fa-plus-circle me-2"></i> Agregar Stock
+        </a>
+    </div>
+
+    <div class="row g-4">
+        @if (!Model.Any())
+        {
+            <div class="col-12 text-center text-muted">
+                <i class="fas fa-exclamation-circle"></i> No hay stock registrado.
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card shadow-sm h-100 border-0">
+                        <div class="card-body p-4 d-flex flex-column justify-content-between">
+                            <h5 class="card-title fw-bold text-primary" style="font-family: Fellix, serif;">
+                                @item.Indumentaria.Nombre
+                            </h5>
+                            <p class="card-text mb-1">
+                                <strong>Talle:</strong> @item.Talle.Nombre
+                            </p>
+                            <p class="card-text mb-3">
+                                <strong>Cantidad Disponible:</strong> <span class="badge bg-success fs-6">@item.CantidadDisponible</span>
+                            </p>
+
+                            <!-- Acciones con diseño de botones alineados horizontalmente -->
+                            <div class="d-flex mt-3">
+                                <a asp-action="Edit" asp-route-id="@item.TalleIndumentariaID" class="btn btn-sm btn-outline-warning me-2 flex-fill shadow-sm rounded-pill">
+                                    <i class="fas fa-edit"></i> Editar
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.TalleIndumentariaID" class="btn btn-sm btn-outline-info me-2 flex-fill shadow-sm rounded-pill">
+                                    <i class="fas fa-info-circle"></i> Detalles
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.TalleIndumentariaID" class="btn btn-sm btn-outline-danger flex-fill shadow-sm rounded-pill">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <!-- Control de paginación -->
+    <div class="mt-4 d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+   {
+       LinkToPreviousPageFormat = "Anterior",
+       LinkToNextPageFormat = "Siguiente",
+       MaximumPageNumbersToDisplay = 5,
+       UlElementClasses = new[] { "pagination", "justify-content-center" },
+       LiElementClasses = new[] { "page-item" },
+       PageClasses = new[] { "page-link" }
+   })
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

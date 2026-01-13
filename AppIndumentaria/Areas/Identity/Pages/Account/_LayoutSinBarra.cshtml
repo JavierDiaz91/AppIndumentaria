@@ -1,0 +1,18 @@
+﻿@{
+    Context.Items["MostrarSidebar"] = false;
+
+    // 2. Le decimos a Identity que su Layout es tu Layout principal.
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="row w-100">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="card shadow p-4 border-0">
+                <div class="card-body">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

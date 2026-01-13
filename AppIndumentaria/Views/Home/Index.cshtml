@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-10 col-lg-8">
+            <div class="p-4 mb-4 bg-white rounded-3 shadow text-center">
+                <h2>Gestión de Indumentaria y Capacitación</h2>
+                <p class="text-muted">Un sistema integral para la gestión de indumentarias y capacitaciones de empleados</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center mt-4 justify-content-center">
+        <!-- Primera Fila -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-users fa-2x mb-2 text-primary"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Gestión de Empleados</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Registro y carga de datos de cada empleado.</p>
+                    <a href="/Empleados" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-tshirt fa-2x mb-2 text-warning"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Indumentarias</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Creación de una indumentaria y control de stock.</p>
+                    <a href="/Indumentarias" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-chalkboard-teacher fa-2x mb-2 text-success"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Capacitaciones</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Creación y carga de capacitaciones.</p>
+                    <a href="/Capacitaciones" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center mt-4 justify-content-center">
+        <!-- Segunda Fila -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-clipboard-list fa-2x mb-2 text-info"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Capacitaciones Dictadas</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Seguimiento de las capacitaciones dictadas al personal.</p>
+                    <a href="/ParticipacionCapacitaciones" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-box fa-2x mb-2 text-primary"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Entregas de Indumentarias</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Gestión de entregas de indumentarias al personal, con opción de impresión de planilla.</p>
+                    <a href="/EntregaIndumentarias" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 h-100 p-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <i class="fas fa-warehouse fa-2x mb-2 text-warning"></i>
+                    <h5 class="card-title mt-1" style="font-size: 1rem;">Stock Disponible</h5>
+                    <p class="card-text text-muted" style="font-size: 0.8rem;">Revisión de stock por indumentaria, talle y color.</p>
+                    <a href="/TalleIndumentarias" class="stretched-link mt-auto"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Sección de Enlaces Rápidos con Botones (Compacto) -->
+    @* <div class="row text-center mt-4">
+        <div class="col-md-3 mb-2">
+            <a href="/Empleados" class="btn btn-primary btn-sm w-100 shadow-sm d-flex align-items-center justify-content-center">
+                <i class="fas fa-users mr-2"></i> Lista de empleados
+            </a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="/Indumentarias" class="btn btn-warning btn-sm w-100 shadow-sm d-flex align-items-center justify-content-center">
+                <i class="fas fa-tshirt mr-2"></i> Stock disponible
+            </a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="/Capacitaciones" class="btn btn-success btn-sm w-100 shadow-sm d-flex align-items-center justify-content-center">
+                <i class="fas fa-chalkboard-teacher mr-2"></i> Capacitaciones
+            </a>
+        </div>
+        <div class="col-md-3 mb-2">
+            <a href="/ParticipacionCapacitaciones" class="btn btn-info btn-sm w-100 shadow-sm d-flex align-items-center justify-content-center">
+                <i class="fas fa-clipboard-list mr-2"></i> Capacitaciones dictadas
+            </a>
+        </div>
+    </div>
+</div> *@
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

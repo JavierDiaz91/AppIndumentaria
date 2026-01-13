@@ -1,0 +1,32 @@
+﻿@model AppIndumentaria.Models.Capacitacion
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Detalles de la Capacitación</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Título</dt>
+                        <dd class="col-sm-9">@Model.Titulo</dd>
+
+                        <dt class="col-sm-3">Descripción</dt>
+                        <dd class="col-sm-9">@Model.Descripcion</dd>
+
+                        <dt class="col-sm-3">Fecha</dt>
+                        <dd class="col-sm-9">@Model.Fecha.ToShortDateString()</dd>
+                    </dl>
+                    <a asp-action="Edit" asp-route-id="@Model?.CapacitacionID" class="btn btn-primary">Editar</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary ms-2">Volver al Listado</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,38 @@
+﻿@model AppIndumentaria.Models.ParticipacionCapacitacion
+
+@{
+    ViewData["Title"] = "Eliminar Participación en Capacitación";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Eliminar Participación en Capacitación</h3>
+                </div>
+                <div class="card-body">
+                    <h5 class="text-danger">Está seguro de que desea eliminar esta participación en la capacitación?</h5>
+                    <dl class="row mt-3">
+                        <dt class="col-sm-3">Fecha de Participación</dt>
+                        <dd class="col-sm-9">@Model.FechaParticipacion</dd>
+
+                        <dt class="col-sm-3">Estado</dt>
+                        <dd class="col-sm-9">@Model.Estado</dd>
+
+                        <dt class="col-sm-3">Empleado</dt>
+                        <dd class="col-sm-9">@Model.Empleado.EmpleadoID</dd>
+
+                        <dt class="col-sm-3">Capacitación</dt>
+                        <dd class="col-sm-9">@Model.Capacitacion.CapacitacionID</dd>
+                    </dl>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="ParticipacionCapacitacionID" />
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                        <a asp-action="Index" class="btn btn-outline-secondary ms-2">Volver al Listado</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

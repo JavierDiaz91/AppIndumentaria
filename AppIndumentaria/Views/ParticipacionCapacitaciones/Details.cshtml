@@ -1,0 +1,37 @@
+﻿@model AppIndumentaria.Models.ParticipacionCapacitacion
+
+@{
+    ViewData["Title"] = "Detalles de Participación en Capacitación";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Detalles del cursado</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Fecha del curso</dt>
+                        <dd class="col-sm-9">@Model.FechaParticipacion.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                        <dt class="col-sm-3">Estado</dt>
+                        <dd class="col-sm-9">@Model.Estado</dd>
+
+                        <dt class="col-sm-3">Empleado</dt>
+                        <dd class="col-sm-8">@Model.Empleado.Nombre @Model.Empleado.Apellido</dd>
+
+                        <dt class="col-sm-3">Capacitación</dt>
+                        <dd class="col-sm-8">@Model.Capacitacion.Titulo</dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="d-flex justify-content-start mt-3">
+                <a asp-action="Edit" asp-route-id="@Model?.ParticipacionCapacitacionID" class="btn btn-warning">Editar</a>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-2">Volver al Listado</a>
+            </div>
+        </div>
+    </div>
+</div>
+

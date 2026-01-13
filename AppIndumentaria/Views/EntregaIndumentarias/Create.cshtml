@@ -1,0 +1,89 @@
+﻿@model AppIndumentaria.Models.EntregaIndumentaria
+
+@{
+    ViewData["Title"] = "Crear Entrega de Indumentaria";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Crear Entrega de Indumentaria</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <!-- Mensajes de validación -->
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <!-- Selector de Empleado -->
+                        <div class="mb-3">
+                            <label class="form-label">Empleado</label>
+                            <select asp-for="EmpleadoID" class="form-select" asp-items="ViewBag.EmpleadoID"></select>
+                            <span asp-validation-for="EmpleadoID" class="text-danger"></span>
+                        </div>
+
+                        <!-- Selector de Tipo de Indumentaria -->
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Indumentaria</label>
+                            <select asp-for="IndumentariaID" class="form-select" asp-items="ViewBag.IndumentariaID"></select>
+                            <span asp-validation-for="IndumentariaID" class="text-danger"></span>
+                        </div>
+
+                        <!-- Selector de Talle -->
+                        <div class="mb-3">
+                            <label asp-for="TalleID" class="form-label">Talle</label>
+                            <select asp-for="TalleID" class="form-select" asp-items="ViewBag.TalleID"></select>
+                            <span asp-validation-for="TalleID" class="text-danger"></span>
+                        </div>
+
+                        <!-- Fecha de Entrega -->
+                        <div class="mb-3">
+                            <label asp-for="FechaEntrega" class="form-label">Fecha de Entrega</label>
+                            <input asp-for="FechaEntrega" class="form-control" type="datetime-local" />
+                            <span asp-validation-for="FechaEntrega" class="text-danger"></span>
+                        </div>
+
+                        <!-- Cantidad Entregada -->
+                        <div class="mb-3">
+                            <label asp-for="CantidadEntregada" class="form-label">Cantidad Entregada</label>
+                            <input asp-for="CantidadEntregada" class="form-control" type="number" min="1" />
+                            <span asp-validation-for="CantidadEntregada" class="text-danger"></span>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <input type="submit" value="Crear" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-outline-secondary">Volver al Listado</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

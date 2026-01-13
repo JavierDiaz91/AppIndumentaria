@@ -1,0 +1,35 @@
+﻿@model AppIndumentaria.Models.Empleado
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Detalles del Empleado</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">Nombre</dt>
+                        <dd class="col-sm-9">@Model.Nombre</dd>
+
+                        <dt class="col-sm-3">Apellido</dt>
+                        <dd class="col-sm-9">@Model.Apellido</dd>
+
+                        <dt class="col-sm-3">Puesto</dt>
+                        <dd class="col-sm-9">@Model.Puesto</dd>
+
+                        <dt class="col-sm-3">Fecha de Ingreso</dt>
+                        <dd class="col-sm-9">@Model.FechaIngreso.ToShortDateString()</dd>
+                    </dl>
+                    <a asp-action="Edit" asp-route-id="@Model?.EmpleadoID" class="btn btn-primary">Editar</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary ms-2">Volver a la Lista</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

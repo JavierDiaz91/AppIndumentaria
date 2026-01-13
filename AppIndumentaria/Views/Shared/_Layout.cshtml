@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AppIndumentaria</title>
+    <link rel="icon" type="image/x-icon" href="~/image/favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+@{
+        // Declaración y valor por defecto (true)
+        bool mostrarSidebar = true;
+
+        // Verificamos si Identity (a través de _LayoutSinBarra.cshtml) pidió ocultarla
+        if (Context.Items.ContainsKey("MostrarSidebar"))
+        {
+                mostrarSidebar = (bool)Context.Items["MostrarSidebar"];
+        }
+}
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                @if (!mostrarSidebar)
+                {
+                    <img src="~/image/Iso_COLOR.png" alt="Logo" style="width: 30px; height: 30px;" class="me-2" />
+                }
+               
+            </a>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+                <ul class="navbar-nav">
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @if (mostrarSidebar)
+    {
+        <div class="d-flex">
+            <nav class="sidebar collapsed d-flex flex-column p-3 bg-warning">
+                <a href="~/Home/Index" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none justify-content-center">
+                    <img src="~/image/Iso_COLOR.png" class="logo" alt="Logo" />
+                </a>
+                <hr>
+
+                <ul class="nav nav-pills flex-column mb-auto text-center">
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="Empleados" asp-action="Index" title="Empleados">
+                            <i class="fas fa-users fa-lg"></i>
+                            <span>Empleados</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="Indumentarias" asp-action="Index" title="Indumentarias">
+                            <i class="fas fa-tshirt fa-lg"></i>
+                            <span>Indumentarias</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="Capacitaciones" asp-action="Index" title="Capacitaciones">
+                            <i class="fas fa-chalkboard-teacher fa-lg"></i>
+                            <span>Capacitaciones</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="EntregaIndumentarias" asp-action="Index" title="Entregas de Indumentarias">
+                            <i class="fas fa-box fa-lg"></i>
+                            <span>Entregas</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="ParticipacionCapacitaciones" asp-action="Index" title="Capacitaciones tomadas">
+                            <i class="fas fa-clipboard-list fa-lg"></i>
+                            <span>Participación</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark" asp-controller="TalleIndumentarias" asp-action="Index" title="Stock disponible">
+                            <i class="fas fa-people-arrows fa-lg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link " asp-controller="Talles" asp-action="Index" title="Cargar un talle">
+                            <i class="fas fa-ruler fa-lg"></i>
+                            <span>Carga de talles</span>
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+            </nav>
+
+
+            <div class="content container-fluid">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    }
+    else
+    {
+        <main role="main" class="pb-3 w-100">
+            @RenderBody()
+        </main>
+    }
+
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            &copy; 2024 - Control de Indumentarias
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

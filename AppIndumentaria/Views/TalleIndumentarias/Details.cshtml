@@ -1,0 +1,45 @@
+﻿@model AppIndumentaria.Models.TalleIndumentaria
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Detalles del Talle de Indumentaria</h3>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">
+                            Tipo de Indumentaria
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Indumentaria.Nombre)
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            Talle
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.Talle.Nombre)
+                        </dd>
+
+                        <dt class="col-sm-4">
+                            Cantidad Disponible
+                        </dt>
+                        <dd class="col-sm-8">
+                            @Html.DisplayFor(model => model.CantidadDisponible)
+                        </dd>
+                    </dl>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model?.TalleIndumentariaID" class="btn btn-warning">Editar</a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Volver al Listado</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

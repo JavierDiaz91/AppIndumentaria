@@ -1,0 +1,62 @@
+﻿@model AppIndumentaria.Models.TalleIndumentaria
+
+@{
+    ViewData["Title"] = "Crear Talle de Indumentaria";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Crear Talle de Indumentaria</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <!-- Selector de Indumentaria -->
+                        <div class="mb-3">
+                            <label asp-for="IndumentariaID" class="form-label">Indumentaria</label>
+                            <select asp-for="IndumentariaID" class="form-select" asp-items="ViewBag.IndumentariaID"></select>
+                            <span asp-validation-for="IndumentariaID" class="text-danger"></span>
+                        </div>
+
+                        <!-- Selector de Talle -->
+                        <div class="mb-3">
+                            <label asp-for="TalleID" class="form-label">Talle</label>
+                            <select asp-for="TalleID" class="form-select" asp-items="ViewBag.TalleID"></select>
+                            <span asp-validation-for="TalleID" class="text-danger"></span>
+                        </div>
+
+                        <!-- Cantidad Disponible -->
+                        <div class="mb-3">
+                            <label asp-for="CantidadDisponible" class="form-label">Cantidad Disponible</label>
+                            <input asp-for="CantidadDisponible" class="form-control" type="number" min="1" />
+                            <span asp-validation-for="CantidadDisponible" class="text-danger"></span>
+                        </div>
+
+                        <!-- Botón Crear -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <input type="submit" value="Crear" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-outline-secondary">Volver al Listado</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+
+
+
+
+
+

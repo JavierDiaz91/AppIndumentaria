@@ -1,0 +1,62 @@
+﻿@model AppIndumentaria.Models.Indumentaria
+
+@{
+    ViewData["Title"] = "Detalles de la Indumentaria";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header" style="background-color: #1E3250; color: white;">
+                    <h3 class="mb-0">Detalles de la Indumentaria - @Model.Nombre</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Nombre de la Indumentaria: <strong>@Model.Nombre</strong></h5>
+
+                    <hr />
+
+                    <h5>Talles Disponibles:</h5>
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Talle</th>
+                                <th>Cantidad Disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.TallesIndumentaria != null && Model.TallesIndumentaria.Any())
+                            {
+                                foreach (var talle in Model.TallesIndumentaria)
+                                {
+                                    <tr>
+                                        <td>@(string.IsNullOrWhiteSpace(talle.Talle?.Nombre) ? "No especificado" : talle.Talle.Nombre)</td>
+                                        <td>@talle.CantidadDisponible</td>
+                                    </tr>
+                                }
+                            }
+                            else
+                            {
+                                <tr>
+                                    <td colspan="2" class="text-center">No hay talles disponibles para esta indumentaria.</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="AgregarTalle" asp-route-indumentariaId="@Model.IndumentariaID" class="btn btn-success">
+                            Agregar Talle
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Volver al Listado</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

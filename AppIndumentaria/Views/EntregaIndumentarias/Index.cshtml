@@ -1,0 +1,103 @@
+﻿@model IPagedList<AppIndumentaria.Models.EntregaIndumentaria>
+@using X.PagedList.Mvc.Core
+@using X.PagedList
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold text-secondary" style="font-family: Fellix, serif;">Entrega de Indumentarias</h3>
+        <div class="d-flex align-items-center">
+            <!-- Botón para Crear Nueva Entrega -->
+            <a asp-action="Create" class="btn btn-success shadow-sm rounded-pill me-3 px-4">
+                <i class="fas fa-plus-circle"></i> Nueva
+            </a>
+            <!-- Botón para ir a la selección de empleado e imprimir entrega -->
+            <a asp-action="SeleccionarEmpleadoParaPDF" class="btn shadow-sm rounded-pill" style="background-color: #1E3250; color: white;">
+                <i class="fas fa-print"></i> Imprimir Entrega
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow border-0 mb-4">
+        <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+            <h5 class="mb-0" style="font-family: Fellix, serif;">Listado de Entregas de Indumentaria</h5>
+            <!-- Formulario de búsqueda -->
+            <form asp-action="Index" method="get" class="input-group w-25">
+                <input type="text" name="searchString" value="@ViewData["CurrentFilter"]" class="form-control" placeholder="Buscar..." aria-label="Buscar Entrega">
+                <button class="btn btn-light" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-borderless align-middle">
+                    <thead class="bg-light text-secondary" style="font-size: 0.9rem;">
+                        <tr>
+                            <th>Fecha de Entrega</th>
+                            <th>Empleado</th>
+                            <th>Indumentaria</th>
+                            <th>Talle</th>
+                            <th>Cantidad Entregada</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    <i class="fas fa-exclamation-circle"></i> No hay entregas registradas.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr class="bg-white shadow-sm mb-2 rounded">
+                                    <td class="ps-4">@item.FechaEntrega.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                                    <td>@item.Empleado?.Nombre @item.Empleado?.Apellido</td>
+                                    <td>@item.Indumentaria?.Nombre</td>
+                                    <td>@item.Talle?.Nombre</td>
+                                    <td>@item.CantidadEntregada</td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-center">
+                                            <a asp-action="Edit" asp-route-id="@item.EntregaIndumentariaID" class="btn btn-sm btn-outline-warning me-2 shadow-sm rounded-pill">
+                                                <i class="fas fa-edit"></i> Editar
+                                            </a>
+                                            <a asp-action="Details" asp-route-id="@item.EntregaIndumentariaID" class="btn btn-sm btn-outline-info me-2 shadow-sm rounded-pill">
+                                                <i class="fas fa-info-circle"></i> Detalles
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.EntregaIndumentariaID" class="btn btn-sm btn-outline-danger shadow-sm rounded-pill">
+                                                <i class="fas fa-trash"></i> Eliminar
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Control de paginación -->
+    <div class="mt-4 d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+   {
+       LinkToPreviousPageFormat = "Anterior",
+       LinkToNextPageFormat = "Siguiente",
+       MaximumPageNumbersToDisplay = 5,
+       UlElementClasses = new[] { "pagination", "justify-content-center" },
+       LiElementClasses = new[] { "page-item" },
+       PageClasses = new[] { "page-link" }
+   })
+    </div>
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+

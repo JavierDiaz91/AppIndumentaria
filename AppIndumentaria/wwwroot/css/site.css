@@ -1,0 +1,132 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+body, html {
+    font-family: 'Felix', sans-serif;
+}
+/* Sidebar estilos */
+.sidebar {
+    background-color: #FF9400; /* Naranja */
+    padding: 15px;
+    height: 100vh;
+    width: 70px; /* Ancho reducido por defecto */
+    position: fixed; /* Fijo en el lado izquierdo */
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para un efecto de elevación */
+    transition: width 0.3s; /* Transición suave para el ancho */
+    z-index: 1000; /* Asegura que esté siempre encima del contenido */
+}
+
+    .sidebar.expanded {
+        width: 200px; /* Ancho expandido */
+    }
+
+    .sidebar .nav-link {
+        color: #1E3250; /* Azul oscuro */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Alinear íconos al principio */
+        padding: 10px 15px; /* Más espacio para permitir íconos y texto */
+        font-weight: 500;
+        border-radius: 5px;
+        transition: all 0.4s ease-in-out; /* Transición suave */
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+        .sidebar .nav-link i {
+            margin-right: 10px; /* Espacio entre el ícono y el texto */
+        }
+
+        .sidebar .nav-link span {
+            opacity: 0;
+            margin-left: 0;
+            transition: opacity 0.3s, margin-left 0.3s; /* Transición para mostrar el texto */
+        }
+
+    .sidebar.expanded .nav-link span {
+        opacity: 1;
+        margin-left: 10px;
+    }
+
+.nav-link i:hover {
+    color: #ffffff; /* Cambia el color del ícono al pasar el mouse */
+    transition: color 0.1s ease-in-out;
+}
+
+.logo {
+    width: 50px; /* Tamaño reducido del logo */
+    height: auto;
+    margin-bottom: 15px;
+    transition: width 0.3s; /* Transición suave para el logo */
+}
+
+/* Contenido principal */
+.content {
+    margin-left: 70px; /* Ajustar el margen dependiendo del ancho de la sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* El contenido ocupa al menos el 100% del viewport */
+    background-color: #f8f9fa; /* Fondo claro para destacar el contenido */
+    transition: margin-left 0.3s; /* Transición suave para el contenido */
+}
+
+    .content.expanded {
+        margin-left: 200px; /* Margen ajustado cuando la sidebar está expandida */
+    }
+
+/* Footer estilos */
+footer {
+    background-color: #1E3250; /* Azul oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: sticky; /* Se mantiene en el fondo visible */
+    bottom: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1); /* Sombra sutil para el footer */
+}
+
+/* General Body */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif; /* Fuente limpia y legible */
+    background-color: #f0f2f5; /* Fondo claro para toda la página */
+}
+
+
+/* Estilo cuando un enlace está seleccionado o activo */
+.sidebar .nav-link.active {
+    background-color: #FFA500; /* Naranja similar al color de la barra */
+    color: #FFFFFF; /* Blanco para el texto */
+    font-weight: bold; /* Para hacer que el texto se vea más destacado */
+}
+
+    .sidebar .nav-link.active i {
+        color: #FFFFFF; /* Cambiar también el color del ícono */
+    }
