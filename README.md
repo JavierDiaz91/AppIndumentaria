@@ -38,9 +38,3 @@ Este sistema nace de la necesidad de digitalizar y optimizar la gestión de recu
 * **Seguridad:** ASP.NET Core Identity
 
 ---
-
-## 💻 Instalación y Configuración
-
-1. **Clonar el repositorio:**
-   ```bash
-   git clone [https://github.com/JavierDiaz91/AppIndumentaria.git](https://github.com/JavierDiaz91/AppIndumentaria.git)
