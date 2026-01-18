@@ -61,3 +61,9 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# Hacer que GitHub ignore los archivos de vista para las estadísticas de lenguaje
+*.html linguist-detectable=false
+*.cshtml linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
